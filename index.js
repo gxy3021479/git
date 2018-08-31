@@ -1,9 +1,11 @@
 const express=require('express');
 const path=require('path');
 const server=express();
+
+server.use(express.static('./www'))
 server.get('/',(req,res)=>{
-    res.send('马宏宇王八蛋'
-        // path.resolve()
+    res.sendFile(
+        path.resolve('./views/index.html')
     );
-})
-server.listen(80)
+});
+server.listen(80);
